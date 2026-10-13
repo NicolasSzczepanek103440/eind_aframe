@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strand</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+
+</head>
+<body>
+    <a-scene>
+        <!-- light -->
+        <a-entity light="castShadow: true; type: ambient; intensity: 1" shadow="type: pcfsoft" position="0 20 0"></a-entity>
+
+        <!-- prepare 3D assets -->
+        <a-assets>
+            <a-asset-item id="shell" src="./assets/models/seashell_obj.glb" ></a-asset-item>
+        </a-assets>
+
+        <!-- camera -->
+        <a-entity rotation="0 90 0" position="40 0 0">
+            <a-entity camera wasd-controls look-controls position="0 1.6 0">
+                <a-entity cursor="rayOrigin: mouse;" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat"></a-entity>
+            </a-entity>
+        </a-entity>
+
+        <!-- environment (sky, etc) -->
+        <a-sky color="#a4c6fc" rotation="0 -135 0"></a-sky>
+
+        <a-plane width="400" height="500" rotation="-90 0 0" color="yellow" shadow="receive: true;" src="assets/models/Textures/sand.jpg" position="150 -10 0"></a-plane>
+        <a-plane width="1150" height="500" rotation="-90 0 0" position="-625 -10 0" color="blue"></a-plane>
+        
+        <!-- 3d-modellen -->
+        
+        <a-entity position="0 0 0">
+            <a-sphere shadow="cast: true; receive: true;" scale="4 2 4" src="./assets/models/textures/beach_ball.jpeg" position="0 -6 0" animation="property: position; from: 0 -6 0; to: 0 15 0; dir: alternate; easing: easeInOutCubic; dur: 500; loop: true;"
+            animation__effect="property: scale; from: 4 2 4; to: 2 4 2; dur: 500; dir: alternate; loop: true; easing: linear"></a-sphere>
+
+            <a-entity light="castShadow: true; type: point; intensity: 0.2" shadow="type: pcfsoft" position="0 25 0"></a-entity>
+        </a-entity>
+        
+        
+        
+        
+    </a-scene>
+</body>
+</html>
